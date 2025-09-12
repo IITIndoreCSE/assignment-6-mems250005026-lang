@@ -3,7 +3,7 @@ using namespace std;
 int main()
 {
   //test1
-    int n=5;
+    int n;
     int sum = 0;
     for(n;n>0;n--)
     {
