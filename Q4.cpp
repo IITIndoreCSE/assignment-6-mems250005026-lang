@@ -6,6 +6,36 @@
 
 
 
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    int arr[] = {1, 3, 5, 7, 9};  
+    int n = sizeof(arr) / sizeof(arr[0]);  
+
+    
+    int search;
+    cout << "Enter the number to search: ";
+    cin >> search;
+
+    
+    bool found = false;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == search) {
+            cout << "Found at position: " << i << endl;
+            found = true;
+            break;
+        }
+    }
+
+    
+    if (!found) {
+        cout << "Not found" << endl;
+    }
+
+    return 0;
+}
 
 
 
