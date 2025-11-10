@@ -2,53 +2,37 @@
 #include <iostream>
 using namespace std;
 
-// Define a Complex class
-class Complex {
-public:
-    // Member variables to store real and imaginary parts
-    float real, imag;
+// Function to add two complex numbers
+void add(float r1, float i1, float r2, float i2, float &rSum, float &iSum) {
+    rSum = r1 + r2;
+    iSum = i1 + i2;
+}
 
-    // Constructor to initialize complex number
-    Complex(float r = 0.0, float i = 0.0) : real(r), imag(i) {}
-
-    // Function to add two complex numbers
-    Complex add(const Complex& other) {
-        return Complex(real + other.real, imag + other.imag);
-    }
-
-    // Function to subtract one complex number from another
-    Complex subtract(const Complex& other) {
-        return Complex(real - other.real, imag - other.imag);
-    }
-
-    // Function to display complex number in the form a + bi
-    void display() const {
-        if(imag < 0)
-            cout << real << " - " << -imag << "i" << endl;
-        else
-            cout << real << " + " << imag << "i" << endl;
-    }
-};
+// Function to subtract two complex numbers
+void subtract(float r1, float i1, float r2, float i2, float &rDiff, float &iDiff) {
+    rDiff = r1 - r2;
+    iDiff = i1 - i2;
+}
 
 int main() {
-    // Declare two complex numbers
-    Complex num1(3.0, 2.0), num2(1.0, 4.0);
+    float r1, i1, r2, i2;      // real and imaginary parts of inputs
+    float rSum, iSum;          // for storing sum
+    float rDiff, iDiff;        // for storing difference
 
-    // Display the original complex numbers
-    cout << "Complex Number 1: ";
-    num1.display();
-    cout << "Complex Number 2: ";
-    num2.display();
+    // Input from user
+    cout << "Enter real and imaginary parts of first complex number: ";
+    cin >> r1 >> i1;
 
-    // Add the two complex numbers
-    Complex sum = num1.add(num2);
-    cout << "Sum: ";
-    sum.display();
+    cout << "Enter real and imaginary parts of second complex number: ";
+    cin >> r2 >> i2;
 
-    // Subtract the two complex numbers
-    Complex diff = num1.subtract(num2);
-    cout << "Difference: ";
-    diff.display();
+    // Function calls
+    add(r1, i1, r2, i2, rSum, iSum);
+    subtract(r1, i1, r2, i2, rDiff, iDiff);
+
+    // Display results
+    cout << "\nSum = " << rSum << " + " << iSum << "i" << endl;
+    cout << "Difference = " << rDiff << " + " << iDiff << "i" << endl;
 
     return 0;
 }
